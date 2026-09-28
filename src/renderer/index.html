@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TasksMon Task Creator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>TasksMon Task Creator</h1>
+
+    <section class="card">
+      <h2>1. Sign in</h2>
+      <label>Site URL
+        <input type="text" id="siteUrl" placeholder="https://www.tasksmon.com" value="https://www.tasksmon.com" />
+      </label>
+      <label>Username
+        <input type="text" id="username" placeholder="you@example.com" />
+      </label>
+      <label>Password
+        <input type="password" id="password" />
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="rememberMe" />
+        Remember me on this device
+      </label>
+      <button id="forgetMeBtn" class="link-btn" type="button" hidden>Forget saved login</button>
+    </section>
+
+    <section class="card">
+      <h2>2. Excel file</h2>
+      <button id="selectFileBtn">Choose Excel File...</button>
+      <span id="selectedFileName">No file selected</span>
+    </section>
+
+    <section class="card">
+      <h2>3. Run</h2>
+      <button id="startBtn" disabled>Start</button>
+      <button id="stopBtn" disabled>Stop</button>
+    </section>
+
+    <section class="card">
+      <h2>Progress</h2>
+      <div class="progress-grid">
+        <div><span class="label">Total</span><span id="pTotal">0</span></div>
+        <div><span class="label">Completed</span><span id="pCompleted">0</span></div>
+        <div><span class="label">Failed</span><span id="pFailed">0</span></div>
+        <div><span class="label">Remaining</span><span id="pRemaining">0</span></div>
+      </div>
+      <div>Current task: <span id="pCurrent">-</span></div>
+    </section>
+
+    <section class="card">
+      <h2>Logs</h2>
+      <div id="logPanel" class="log-panel"></div>
+    </section>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

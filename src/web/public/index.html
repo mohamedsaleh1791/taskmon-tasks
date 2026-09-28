@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TasksMon Task Creator</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar"><div><p class="eyebrow">Task operations</p><h1>TasksMon Task Creator</h1></div><span class="status" id="runStatus">Ready</span></header>
+    <div class="workspace">
+      <section class="setup-panel" aria-label="Run setup">
+        <form id="runForm">
+          <div class="section-heading"><span>1</span><h2>Connect</h2></div>
+          <label>TasksMon URL<input id="siteUrl" type="url" value="https://www.tasksmon.com" required></label>
+          <label>Username<input id="username" type="text" autocomplete="username" required></label>
+          <label>Password<input id="password" type="password" autocomplete="current-password" required></label>
+          <p class="privacy-note">Credentials are used for this run only and are never saved by this site.</p>
+          <div class="section-heading"><span>2</span><h2>Import tasks</h2></div>
+          <label class="file-picker" for="taskFile"><input id="taskFile" type="file" accept=".xlsx,.xls" required><strong>Choose Excel file</strong><small id="fileName">No file selected</small></label>
+          <p class="file-note">Required columns: TaskID, Account, ActualDuration, ReportedDuration, HourlyRate, Notes.</p>
+          <div id="validation" class="validation" hidden></div>
+          <div class="actions"><button id="startButton" type="submit">Start run</button><button id="stopButton" type="button" class="secondary" disabled>Stop</button></div>
+        </form>
+      </section>
+      <section class="run-panel" aria-live="polite">
+        <div class="section-heading"><span>3</span><h2>Run status</h2></div>
+        <div class="metrics"><div><small>Total</small><strong id="total">0</strong></div><div><small>Created</small><strong id="completed">0</strong></div><div><small>Failed</small><strong id="failed">0</strong></div><div><small>Remaining</small><strong id="remaining">0</strong></div></div>
+        <div class="current"><span>Current task</span><strong id="current">Waiting for import</strong></div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+        <div class="report-links" id="reportLinks"></div>
+        <div class="log-wrap"><div class="log-title">Activity</div><pre id="logs">Your task run will appear here.</pre></div>
+      </section>
+    </div>
+  </main>
+  <script src="/assets/xlsx.full.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

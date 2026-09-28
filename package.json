@@ -1,0 +1,40 @@
+{
+  "name": "tasksmon-desktop",
+  "version": "1.0.0",
+  "description": "Desktop automation app for creating TasksMon tasks from Excel",
+  "main": "src/main/main.js",
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "node src/web/server.js",
+    "web": "node src/web/server.js",
+    "desktop": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "playwright-core": "^1.48.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.0"
+  },
+  "build": {
+    "appId": "com.tasksmon.desktopautomation",
+    "productName": "TasksMon Task Creator",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "extraResources": [],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
